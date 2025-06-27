@@ -81,7 +81,7 @@ class DatasetVisitor(lark.Visitor):
         dtype_str = dtype_node.data
         dims = [str(dim) for dim in dims_node.children] if dims_node else []
         self._variable_dims[name] = dims
-        self._variable_dtype[name] = dtype_str
+        self._variable_dtype[name] = {"float": np.float32, "int": np.int32}.get(dtype_str, dtype_str)
 
     def variable_attr(self, v):
         varname, attr_node, value_node = v.children
@@ -103,7 +103,7 @@ class DatasetVisitor(lark.Visitor):
         data_vars = {}
         for name in self._variable_dims:
             shape = tuple(self._dims[k] for k in self._variable_dims[name])
-            arr = np.zeros(shape)
+            arr = np.zeros(shape, dtype=self._variable_dtype[name])
             if name in self._variable_data:
                 data = self._variable_data[name]
                 view = arr.ravel()

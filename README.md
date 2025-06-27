@@ -11,9 +11,8 @@ pip install https://github.com/nbren12/xarray_cdl/archive/main.tar.gz
 ```
 
 ## Usage
-
 ```python
->>> from xarray_cdl import loads
+>>> from xarray_cdl import loads, dumps
 >>> s = """
 ...     netcdf example {   // example of CDL notation
 ...     dimensions:
@@ -32,14 +31,31 @@ pip install https://github.com/nbren12/xarray_cdl/archive/main.tar.gz
 ...         59, 61, 67, 71, 73, 79, 83, 89 ;
 ...     }
 ...     """
->>> loads(s)
-<xarray.Dataset> Size: 192B
+>>> ds = loads(s)
+>>> ds
+<xarray.Dataset> Size: 96B
 Dimensions:  (lon: 3, lat: 8)
 Dimensions without coordinates: lon, lat
 Data variables:
-    rh       (lon, lat) float64 192B ...
+    rh       (lon, lat) float32 96B ...
 Attributes:
     title:    Simple example, lacks some conventions
+>>> print(dumps(ds))
+netcdf dataset {
+dimensions:
+    lon = 3;
+    lat = 8;
+variables:
+    float rh(lon, lat);
+        rh:units = "percent";
+        rh:long_name = "Relative humidity";
+    // global attributes
+        :title = "Simple example, lacks some conventions";
+data:
+    rh = 2.0, 3.0, 5.0, 7.0, 11.0, 13.0, 17.0, 19.0,
+    23.0, 29.0, 31.0, 37.0, 41.0, 43.0, 47.0, 53.0,
+    59.0, 61.0, 67.0, 71.0, 73.0, 79.0, 83.0, 89.0;
+}
 ```
 
 ## Attribution

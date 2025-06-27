@@ -63,6 +63,7 @@ var_dims: "(" dim("," dim)* ")"
 ?variable_attr: [symbol] ":" symbol "=" value ";"
 dtype: "float"  -> float
     | "double"  -> double
+    | "long" -> long
     | "int" -> int
     | "char"  -> char
     | "byte"  -> byte
