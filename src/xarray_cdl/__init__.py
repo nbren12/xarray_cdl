@@ -1,3 +1,3 @@
-from xarray_cdl.generate import cdl_to_dataset
+from xarray_cdl.generate import loads
 
-__all__ = ["cdl_to_dataset"]
+__all__ = ["loads"]

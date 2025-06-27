@@ -119,7 +119,7 @@ class DatasetVisitor(lark.Visitor):
         return xarray.Dataset(data_vars, attrs=attrs)
 
 
-def cdl_to_dataset(cdl: str) -> xarray.Dataset:
+def loads(cdl: str) -> xarray.Dataset:
     """Convert a CDL string into a xarray dataset
 
     Useful for generating synthetic data for testing
