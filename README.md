@@ -41,3 +41,7 @@ Data variables:
 Attributes:
     title:    Simple example, lacks some conventions
 ```
+
+## Attribution
+
+This code was adapted from the [Allen Institute for Artificial Intelligence's fv3net repository](https://github.com/ai2cm/fv3net/tree/master/external/vcm/vcm/cdl). The original CDL parser implementation was developed by the Allen Institute and is used here under the BSD license.

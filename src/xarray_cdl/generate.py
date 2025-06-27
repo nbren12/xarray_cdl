@@ -1,6 +1,7 @@
 # BSD License
 # 
 # Copyright (c) 2019, The Allen Institute for Artificial Intelligence
+# Copyright (c) 2025, Noah D. Brenowitz
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without modification,
