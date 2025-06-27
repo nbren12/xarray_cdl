@@ -1,0 +1,23 @@
+[project]
+name = "xarray-cdl"
+version = "0.1.0"
+description = "Create xarray from CDL and vice versa."
+readme = "README.md"
+authors = [
+    { name = "Noah D. Brenowitz", email = "nbren12@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "lark>=1.2.2",
+    "numpy>=1",
+    "xarray>=2021.1.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]
