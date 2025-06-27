@@ -85,7 +85,7 @@ class DatasetVisitor(lark.Visitor):
     def variable_attr(self, v):
         varname, attr_node, value_node = v.children
         attrname = attr_node.value
-        attrs = self._variable_attrs.setdefault(varname.value, {})
+        attrs = self._variable_attrs.setdefault(varname.value if varname else None, {})
         attrs[attrname] = parse_value_node(value_node)
 
     def datum(self, v):
@@ -114,7 +114,9 @@ class DatasetVisitor(lark.Visitor):
                 arr,
                 self._variable_attrs.get(name, {}),
             )
-        return xarray.Dataset(data_vars)
+
+        attrs = self._variable_attrs.get(None, {})
+        return xarray.Dataset(data_vars, attrs=attrs)
 
 
 def cdl_to_dataset(cdl: str) -> xarray.Dataset:

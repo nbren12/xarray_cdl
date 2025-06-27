@@ -59,7 +59,7 @@ variables: "variables" ":" [variable*]
 ?variable: (variable_decl | variable_attr)
 ?variable_decl: dtype symbol [var_dims] ";"
 var_dims: "(" dim("," dim)* ")"
-?variable_attr: symbol ":" symbol "=" value ";"
+?variable_attr: [symbol] ":" symbol "=" value ";"
 dtype: "float"  -> float
     | "double"  -> double
     | "int" -> int

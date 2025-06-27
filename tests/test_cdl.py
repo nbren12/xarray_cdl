@@ -50,6 +50,8 @@ def test_get_data():
             a:foo = "bar";
     // a comment
 
+    :global_attr = 1;
+
     data:
         time = 1,2,3;
         b = 3;
@@ -62,6 +64,7 @@ def test_get_data():
     assert ds["time"].values.tolist() == [1, 2, 3]
     assert ds.a.foo == "bar"
     assert ds.b.item() == 3
+    assert ds.global_attr == 1
 
 
 def test_lark():
