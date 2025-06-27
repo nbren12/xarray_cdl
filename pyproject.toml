@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Noah D. Brenowitz", email = "nbren12@gmail.com" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
     "lark>=1.2.2",
     "numpy>=1",
